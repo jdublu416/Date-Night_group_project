@@ -13,3 +13,11 @@ header{
     background-color:#5d000d;
     color:white;
 }
+
+.jumbotron{
+    text-align: center;
+}
+.container{
+    text-align: center;
+    align-content: center;
+}
