@@ -21,3 +21,40 @@ header{
     text-align: center;
     align-content: center;
 }
+
+.dropdown{
+    padding:10px;
+    margin-bottom: 10px;
+}
+h3{
+    padding: 0 20px;
+    margin-right: 20px;
+}
+
+button {
+    padding:20px 50px;
+
+}
+
+form{
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 50px;
+
+}
+
+#btnZipCode{
+
+    max-width: 150px;
+}
+
+#lblZipCode{
+    margin-left: 7px;
+}
+.zip{
+    background-color: #6c757d;
+    color: white;
+}
+/* .carot{
+    
+} */
