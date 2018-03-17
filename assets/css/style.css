@@ -1,3 +1,14 @@
 body{
-    background-color: aliceblue;
+    background-image: url("../images/bgheader.jpg");
+    font-family: 'Rammetto One', cursive;
+  
+}
+
+#logo{
+
+}
+
+header{
+    background-color:#5d000d;
+    color:white;
 }
