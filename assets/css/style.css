@@ -1,5 +1,5 @@
 body{
-    background-image: url("../images/bgheader.jpg");
+    
     font-family: 'Rammetto One', cursive;
   
 }
@@ -10,8 +10,9 @@ body{
 
 header{
     text-align: center;
-    background-color:#5d000d;
+    /* background-color:#5d000d; */
     color:white;
+    background-image: url("../images/bgheader.jpg");
 }
 
 .jumbotron{
@@ -55,6 +56,8 @@ form{
     background-color: #6c757d;
     color: white;
 }
-/* .carot{
-    
-} */
+.sidebar{
+    width: 250px;
+    height: 350px;
+    border: 2px solid red; 
+}
