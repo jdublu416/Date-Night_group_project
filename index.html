@@ -1,81 +1,110 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SDN</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
+    <header class="jumbotron jumbotron-fluid">
         <div class="container">
-                <div class="row">
-                  <div class="col">
-                        <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-                                </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                              </div>
-                  </div>
-                  <div class="col">
-                        <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text" id="inputGroup-sizing-default">Interested in</span>
-                                </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                              </div>
-                  </div>
+            <h1 class="display-4">Date Night!</h1>
+            <p class="lead">Choose your interests and let us pick a place!</p>
+        </div>
+    </header>
+<aside class="row sidebar">
+    <div class="col-sm-12">
+        <div class="row">this is where the content goes</div>
+        <div class="row">this is where the content goes</div>
+        <div class="row">this is where the content goes</div>
+        <div class="row">this is where the content goes</div>
+    </div>
+</aside>
+
+    <div class="container">
+        <div class="row">
+            <form class="col-sm-12">
+                <div class="dropdown row">
+                    <!-- <div class="col-sm-6"> -->
+                    <h3 id="lblPrice">How much are you wanting to spend?</h3>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Price
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">free</a>
+                        <a class="dropdown-item" href="#">$</a>
+                        <a class="dropdown-item" href="#">$$</a>
+                        <a class="dropdown-item" href="#">$$$</a>
+                        <a class="dropdown-item" href="#">$$$$</a>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div class="row">
-                  <div class="col-sm-4">
-                      <h2>Price?</h2>
-                        <div class="form-check">
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">$</label>
-                                <br>
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">$$</label>  
-                                <br>
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">$$$</label>
-                            </div>
-                  </div>
-                  <div class="col-sm-4">
-                        <h2>Time Frame</h2>
-                        <div class="form-check">
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">Morning</label>
-                                <br>
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">Afternoon</label>  
-                                <br>
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">Evening</label>
-                                </div>
-                  </div>
-                  <div class="col-sm-4">
-                        <h2>Example</h2>
-                        <div class="form-check">
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">example</label>
-                                <br>
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">Example</label>  
-                                <br>
-                                <input name="102" type="radio" class="with-gap" id="radio106">
-                                <label for="radio106">Example</label>
-                  </div>
-                </div>
-              </div>
-    
+
+
+               
+
+                    <div class="dropdown row">
+                        <h3 id="lblTime">What time of day?</h3>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuTime" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Time of Day
+                        </button>
+                        <div class="dropdown-menu carot" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Morning</a>
+                            <a class="dropdown-item" href="#">Afternoon</a>
+                            <a class="dropdown-item" href="#">Evening</a>
+                            <a class="dropdown-item" href="#">Late Night</a>
+                            <a class="dropdown-item" href="#">All Day</a>
+                        </div>
+                    </div>
+
+
+               
+
+                
+
+                    <div class="dropdown row">
+                        <h3 id="lblActivity">How active are you going to get?</h3>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuActivity" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Activity Goals
+                        </button>
+                        <div class="dropdown-menu carot" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">minimal</a>
+                            <a class="dropdown-item" href="#">moderate</a>
+                            <a class="dropdown-item" href="#">strenuous</a>
+                            <a class="dropdown-item" href="#">combination</a>
+
+                        </div>
+                    </div>
+
+
+                
+
+                <!-- <div class="row"> -->
+                    <div class="input-group mb-3 row">
+                            <h3 id="lblZipCode">Where's this date going to be?</h3>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text zip carot"  id="inputGroup-sizing-default">Zip Code</span>
+                        </div>
+                        <input type="text" class="form-control" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                <!-- </div> -->
+            </form>
+
+
 </body>
+
 </html>
