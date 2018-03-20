@@ -23,7 +23,7 @@ header{
     align-content: center;
 }
 
-.dropdown{
+.dropright{
     padding:10px;
     margin-bottom: 10px;
 }
@@ -58,6 +58,11 @@ form{
 }
 .sidebar{
     width: 250px;
-    height: 350px;
+    height: 450px;
     border: 2px solid red; 
+    padding: 20px;
+    margin-left: 10px;
+}
+.dropdown-menu{
+    padding: 10px;
 }
