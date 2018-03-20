@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SDN</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -27,19 +28,54 @@
     </header>
 <aside class="row sidebar">
     <div class="col-sm-12">
-        <div class="row">this is where the content goes</div>
-        <div class="row">this is where the content goes</div>
-        <div class="row">this is where the content goes</div>
-        <div class="row">this is where the content goes</div>
+        <h4>Pick your Criteria!</h4>
+        <div class="row dropright"> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Price
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">free</a>
+            <a class="dropdown-item" href="#">$</a>
+            <a class="dropdown-item" href="#">$$</a>
+            <a class="dropdown-item" href="#">$$$</a>
+            <a class="dropdown-item" href="#">$$$$</a>
+        </div></div>
+        <div class="row dropright"> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Time of Day
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Morning</a>
+            <a class="dropdown-item" href="#">Afternoon</a>
+            <a class="dropdown-item" href="#">Evening</a>
+            <a class="dropdown-item" href="#">Late Night</a>
+            <a class="dropdown-item" href="#">All Day</a>
+        </div></div>
+        <div class="row dropright"> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Activity Level
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Minimal</a>
+            <a class="dropdown-item" href="#">Moderate</a>
+            <a class="dropdown-item" href="#">Strenuous</a>
+            <a class="dropdown-item" href="#">Combination</a>
+        </div></div>
+       
+        <div class="input-group-prepend">
+            <span class="input-group-text zip carot"  id="inputGroup-sizing-default">Zip Code</span>
+        </div>
+        <input type="text" class="form-control" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
     </div>
 </aside>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <form class="col-sm-12">
                 <div class="dropdown row">
                     <!-- <div class="col-sm-6"> -->
-                    <h3 id="lblPrice">How much are you wanting to spend?</h3>
+                    <!-- <h3 id="lblPrice">How much are you wanting to spend?</h3>
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Price
@@ -94,7 +130,6 @@
 
                 
 
-                <!-- <div class="row"> -->
                     <div class="input-group mb-3 row">
                             <h3 id="lblZipCode">Where's this date going to be?</h3>
                         <div class="input-group-prepend">
@@ -102,8 +137,13 @@
                         </div>
                         <input type="text" class="form-control" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
-                <!-- </div> -->
-            </form>
+
+                    <br> 
+
+                    <div class = "submit">
+                            <button type="button" class="btn btn-secondary zip">Submit</button>
+                    </div>
+            </form> --> 
 
 
 </body>
