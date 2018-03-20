@@ -1,11 +1,10 @@
 body{
-<<<<<<< Updated upstream
     
     font-family: 'Rammetto One', cursive;
   
 }
 
-#logo{
+#logo{ 
 
 }
 
@@ -16,10 +15,6 @@ header{
     background-image: url("../images/bgheader.jpg");
 }
 
-=======
-    background-color: aliceblue;
-}
->>>>>>> Stashed changes
 .jumbotron{
     text-align: center;
 }
@@ -61,14 +56,10 @@ form{
     background-color: #6c757d;
     color: white;
 }
-<<<<<<< Updated upstream
 .sidebar{
     width: 250px;
     height: 350px;
     border: 2px solid red; 
-=======
-header{
-    background-image: url("../images/bgheader.jpg"); 
-    color: white;
->>>>>>> Stashed changes
+    padding: 20px;
+    margin-left: 10px;
 }
