@@ -19,63 +19,74 @@
 </head>
 
 <body>
+
+        <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+        <script type="text/javascript" src="assets/javascript/happyappydoodoo.js"></script>
+
+
     <header class="jumbotron jumbotron-fluid">
         <div class="container">
-            
+
             <h1 class="display-4">Date Night!</h1>
             <p class="lead">Choose your interests and let us pick a place!</p>
         </div>
     </header>
-<aside class="row sidebar">
-    <div class="col-sm-12">
-        <h4>Pick your Criteria!</h4>
-        <div class="row dropright"> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Price
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">free</a>
-            <a class="dropdown-item" href="#">$</a>
-            <a class="dropdown-item" href="#">$$</a>
-            <a class="dropdown-item" href="#">$$$</a>
-            <a class="dropdown-item" href="#">$$$$</a>
-        </div></div>
-        <div class="row dropright"> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Time of Day
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Morning</a>
-            <a class="dropdown-item" href="#">Afternoon</a>
-            <a class="dropdown-item" href="#">Evening</a>
-            <a class="dropdown-item" href="#">Late Night</a>
-            <a class="dropdown-item" href="#">All Day</a>
-        </div></div>
-        <div class="row dropright"> <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Activity Level
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Minimal</a>
-            <a class="dropdown-item" href="#">Moderate</a>
-            <a class="dropdown-item" href="#">Strenuous</a>
-            <a class="dropdown-item" href="#">Combination</a>
-        </div></div>
-       
-        <div class="input-group-prepend">
-            <span class="input-group-text zip carot"  id="inputGroup-sizing-default">Zip Code</span>
+    <aside class="row sidebar">
+        <div class="col-sm-12">
+            <h4>Pick your Criteria!</h4>
+            <div class="row dropright">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Price
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item user-price" value='0'>free</a>
+                    <a class="dropdown-item user-price" value='1'>$</a>
+                    <a class="dropdown-item user-price" value='2'>$$</a>
+                    <a class="dropdown-item user-price" value='3'>$$$</a>
+                    <a class="dropdown-item user-price" value='4'>$$$$</a>
+                </div>
+            </div>
+            <div class="row dropright">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuTime" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Time of Day
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item user-time" value='Morning'>Morning</a>
+                    <a class="dropdown-item user-time" value='Afternoon'>Afternoon</a>
+                    <a class="dropdown-item user-time" value='Evening'>Evening</a>
+                    <a class="dropdown-item user-time" value='LateNight'>Late Night</a>
+                    <a class="dropdown-item user-time" value='AllDay'>All Day</a>
+                </div>
+            </div>
+            <div class="row dropright">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuActivity" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Activity Level
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item user-activity" value='Minimal'>Minimal</a>
+                    <a class="dropdown-item user-activity" value='Moderate'>Moderate</a>
+                    <a class="dropdown-item user-activity" value='Strenuous'>Strenuous</a>
+                    <a class="dropdown-item user-activity" value='Combination'>Combination</a>
+                </div>
+            </div>
+
+            <div class="input-group-prepend">
+                <span class="input-group-text zip carot" id="inputGroup-sizing-default">Zip Code</span>
+            </div>
+            <input type="text" class="form-control" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
         </div>
-        <input type="text" class="form-control" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    </div>
-</aside>
+        </div>
+    </aside>
 
     <!-- <div class="container">
         <div class="row">
             <form class="col-sm-12">
                 <div class="dropdown row">
                     <!-- <div class="col-sm-6"> -->
-                    <!-- <h3 id="lblPrice">How much are you wanting to spend?</h3>
+    <!-- <h3 id="lblPrice">How much are you wanting to spend?</h3>
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Price
@@ -143,7 +154,7 @@
                     <div class = "submit">
                             <button type="button" class="btn btn-secondary zip">Submit</button>
                     </div>
-            </form> --> 
+            </form> -->
 
 
 </body>
