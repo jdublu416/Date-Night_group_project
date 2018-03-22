@@ -63,7 +63,10 @@ var userPrice = '';
 var userTime = '';
 var userInterest = '';
 var userActivity = '';
-var Minimal = [];
+var minimal = ["restaurant","bar","movie_theater","liquor_store", "coffee", "cafe", "night_club", "stadium" ];
+var moderate=["bowling_alley",  "zoo", "amusement_park", "art-gallery","museum"];
+var strenuous=["hiking", "park"];
+var combination= [];
 
 
 var config = {
@@ -85,12 +88,5 @@ var getRandom = function (min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 };
-
-function userValidation(){
-
-
-
-
-}
 
 
