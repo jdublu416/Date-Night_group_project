@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SDN</title>
     <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-        
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 </head>
 
 <body id="content">
@@ -51,20 +53,24 @@
                 <h4 id="choice2"></h4>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item user-time" value="">Morning</a>
-                    <a class="dropdown-item user-time" value="">Afternoon</a>
-                    <a class="dropdown-item user-time" value="">Evening</a>
-                    <a class="dropdown-item user-time" value="">Late Night</a>
+                    <a class="dropdown-item user-time" value="0800">Morning</a>
+                    <a class="dropdown-item user-time" value="1200">Afternoon</a>
+                    <a class="dropdown-item user-time" value="1700">Evening</a>
+                    <a class="dropdown-item user-time" value="2200">Late Night</a>
                     <a class="dropdown-item user-time" value="">All Day</a>
                 </div>
             </div>
             <div class="row dropright">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuActivity" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    Activity Level
+                    Activity
                 </button>
                 <h4 id="choice3"></h4>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                    <!-- Need to add user form for activity -->
+                    <!-- Add 5 activities to arrays for each level -->
+
                     <a class="dropdown-item user-activity" value="">Minimal</a>
                     <a class="dropdown-item user-activity" value="">Moderate</a>
                     <a class="dropdown-item user-activity" value="">Strenuous</a>
@@ -75,7 +81,8 @@
             <div class="row input-group-prepend dropright">
                 <span class="input-group-text zip carot" id="inputGroup-sizing-medium">Zip Code</span>
             </div>
-            <input type="text" class="form-control pull-right" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <input type="text" pattern="[0-9]{5}" class="form-control pull-right" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            <button type="button" id='btnSubmit' class="btn btn-secondary">Submit</button>
         </div>
         </div>
     </aside>
@@ -109,81 +116,37 @@
             </a>
         </div>
     </main>
-    <!-- <div class="container">
-        <div class="row">
-            <form class="col-sm-12">
-                <div class="dropdown row">
-                    <!-- <div class="col-sm-6"> -->
-    <!-- <h3 id="lblPrice">How much are you wanting to spend?</h3>
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuPrice" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Price
+
+    <!-- Modal -->
+    <div class="modal fade" id="userError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">free</a>
-                        <a class="dropdown-item" href="#">$</a>
-                        <a class="dropdown-item" href="#">$$</a>
-                        <a class="dropdown-item" href="#">$$$</a>
-                        <a class="dropdown-item" href="#">$$$$</a>
-                    </div>
                 </div>
+                <div class="modal-body">
+                    Please enter a valid 5-digit ZIP code.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="groupCopyright">
+
+            <small>
+                    <i>Copyright &copy; 2018 Janet Warren Charles Gilker Tim Mace Franklin Antonio</i>
+                </small>
+    </footer>
 
 
-               
-
-                    <div class="dropdown row">
-                        <h3 id="lblTime">What time of day?</h3>
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuTime" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Time of Day
-                        </button>
-                        <div class="dropdown-menu carot" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Morning</a>
-                            <a class="dropdown-item" href="#">Afternoon</a>
-                            <a class="dropdown-item" href="#">Evening</a>
-                            <a class="dropdown-item" href="#">Late Night</a>
-                            <a class="dropdown-item" href="#">All Day</a>
-                        </div>
-                    </div>
-
-
-               
-
-                
-
-                    <div class="dropdown row">
-                        <h3 id="lblActivity">How active are you going to get?</h3>
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuActivity" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Activity Goals
-                        </button>
-                        <div class="dropdown-menu carot" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">minimal</a>
-                            <a class="dropdown-item" href="#">moderate</a>
-                            <a class="dropdown-item" href="#">strenuous</a>
-                            <a class="dropdown-item" href="#">combination</a>
-
-                        </div>
-                    </div>
-
-
-                
-
-                    <div class="input-group mb-3 row">
-                            <h3 id="lblZipCode">Where's this date going to be?</h3>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text zip carot"  id="inputGroup-sizing-default">Zip Code</span>
-                        </div>
-                        <input type="text" class="form-control" id="btnZipCode" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                    </div>
-
-                    <br> 
-
-                    <div class = "submit">
-                            <button type="button" class="btn btn-secondary zip">Submit</button>
-                    </div>
-            </form> -->
     <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/appydoo.js"></script>
 
 </body>
 

@@ -31,10 +31,14 @@ $(document).ready(function () {
         $('#choice3').text(this.text);
     });
 
-    $('#btnZipCode').change(function () {
+    $('#btnSubmit').on('click', function () {
         // event.preventDefault();
-        userLocation = $('#btnZipCode').val();
-        console.log(userLocation);
+        var userLocationUnchecked = $('#btnZipCode').val().trim();
+  
+        if ((userLocationUnchecked.length === 5) && (!isNaN(userLocationUnchecked))){
+                  console.log('test');
+                  userLocation = userLocationUnchecked
+        
         database.ref('user-searches/' + localUserID).push({
             time: userTime,
             price: userPrice,
@@ -42,15 +46,14 @@ $(document).ready(function () {
             activity: userActivity
         });
         console.log('submitted');
+    
+    } else {
+        $('#userError').modal('show');
+    }
+
     });
 
-    // $('#myModal').on('shown.bs.modal', function () {
-    //     $('#myInput').trigger('focus')
-    // });
-
-    // $(function () {
-    //     $('[data-toggle="popover"]').popover()
-    // });
+   
 
 });
 
@@ -60,6 +63,7 @@ var userPrice = '';
 var userTime = '';
 var userInterest = '';
 var userActivity = '';
+var Minimal = [];
 
 
 var config = {
@@ -81,5 +85,12 @@ var getRandom = function (min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 };
+
+function userValidation(){
+
+
+
+
+}
 
 
