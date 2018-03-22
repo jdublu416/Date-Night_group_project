@@ -19,6 +19,7 @@ body{
     "aside aside main main main main"
     "aside aside main main main main"
     "aside aside main main main main"
+    "footer footer footer footer footer footer"
     ;
 }
 
@@ -92,4 +93,8 @@ aside{
 }
 main{
     grid-area: main;
+}
+
+footer{
+    color:white;
 }
