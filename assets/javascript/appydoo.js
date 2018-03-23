@@ -111,27 +111,44 @@ $(document).ready(function() {
           method: "GET"
         }).then(function(response2) {
           console.log(response2);
-        //   $("#itemsContainer").empty();
+          //   $("#itemsContainer").empty();
+
           for (var i = 0; i < 10; i++) {
             var photo = response.results[i].photos[0].photo_reference;
             // https://maps.googleapis.com/maps/api/place/photo?parameters
-            console.log("afterajax " + photo);
+            console.log("afterajax:  " + photo);
 
             var googPUrl =
               "https://maps.googleapis.com/maps/api/place/photo?photoreference=" +
               photo +
               "&maxheight=400&maxwidth=600&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns";
-
+            var name = response.results[i].name;
+            console.log(name);
+            var price = response.results[i].price_level;
+            var hours = response.results[i].opening_hours;
+            var address = response.results[i].formatted_address;
+            var website = "";
             //insert the HTML elements for the carousel here:
 
-            var newCarousel = $("<div class='carousel-item'>");
-            
-            console.log(i);
+            var newCarouselItem = $("<div class='carousel-item'>");
+            // console.log(i);
             var newImg = $(`
               <img class= 'd-block w-100' src=${googPUrl} alt='slide image'/>
               `);
-            newCarousel.append(newImg);
-            $("#itemsContainer").append(newCarousel);
+            newCarouselItem.append(newImg);
+            $("#itemsContainer").append(newCarouselItem);
+
+            $("#tblContainer").append(
+              `
+                <tr>
+                    <td class= "table-data">${name}</td>
+                    <td class= "table-data">${price}</td>
+                    <td class= "table-data">${address}</td>
+                    <td class= "table-data">${hours}</td>  
+                    <td class= "table-data">${website}</td>
+                 </tr>
+                `
+            );
           }
 
           //     $.ajax({
