@@ -115,3 +115,21 @@ footer{
     width: 150px;
     text-align: center;
   }
+
+  .carousel-caption{
+      text-shadow: 2px 2px 5px black;
+      background-color: dimgray;
+      opacity:0.75;
+      font-weight: 900;
+      color: black;
+      border-radius: 10px;
+
+  }
+
+  h5{
+      font-weight: 900;
+     opacity:1.0;
+  }
+  td{
+      height: 30px;
+  }
