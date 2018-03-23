@@ -82,6 +82,12 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+var name="";
+var price="";
+var hours="";
+var address="";
+var website="";
+
 var getRandom = function (min, max) {
     // min = inclusive, max = exclusive
     min = Math.ceil(min);
@@ -89,4 +95,40 @@ var getRandom = function (min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 };
 
+var newRow = $("<tr>");
+    newRow.attr("id","tableRow");
+    var newName = $("<td>");
+    newName.attr("class","table-data");
+    newName.text(name);
+    var newPrice = $("<td>");
+    newPrice.attr("class","table-data");
+    newPrice.text(price);
+    var newAddress = $("<td>");
+    newAddress.attr("class","table-data");
+    newAddress.text(address);
+    var newHours = $("<td>");
+    newHours.attr("class", "table-data");
+    newHours.text(hours);
+    var newWebsite= $("<td>");
+    newWebsite.attr("class", "table-data");
+    newWebsite.text(website);
+    
+   
+    newRow.append(newName);
+    newRow.append(newPrice);
+    newRow.append(newAddress);
+    newRow.append(newHours);
+    newRow.append(newWebsite);
 
+
+$("#tblContainer").append(
+    `
+    <tr>
+        <td class= "table-data">${name}</td>
+        <td class= "table-data">${price}</td>
+        <td class= "table-data">${address}</td>
+        <td class= "table-data">${hours}</td>  
+        <td class= "table-data">${website}</td>
+     </tr>
+    `
+);
