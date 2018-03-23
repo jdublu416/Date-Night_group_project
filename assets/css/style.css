@@ -1,6 +1,4 @@
 body{
-    background-color: #f9fdfe;
-    font-family: 'Rammetto One', cursive;
     background-color: black;
     width: 90%;
     margin-left: auto;
@@ -107,6 +105,8 @@ main{
 footer{
     grid-area: footer;
     color:white;
+    padding: 20px 20%;
+    /* margin-top: 20px; */
 
 }
 
