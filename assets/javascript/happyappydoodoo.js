@@ -35,12 +35,12 @@ $(document).ready(function () {
         // event.preventDefault();
         userLocation = $('#btnZipCode').val();
         console.log(userLocation);
-        database.ref('user-searches/' + localUserID).push({
-            time: userTime,
-            price: userPrice,
-            location: userLocation,
-            activity: userActivity
-        });
+        // database.ref('user-searches/' + localUserID).push({
+        //     time: userTime,
+        //     price: userPrice,
+        //     location: userLocation,
+        //     activity: userActivity
+        // });
         console.log('submitted');
     });
 
@@ -71,13 +71,13 @@ var config = {
     messagingSenderId: "952060630907"
 };
 
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
-var database = firebase.database();
+// var database = firebase.database();
 
-var getRandom = function (min, max) {
-    // min = inclusive, max = exclusive
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
-};
+// var getRandom = function (min, max) {
+//     // min = inclusive, max = exclusive
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min)) + min;
+// };

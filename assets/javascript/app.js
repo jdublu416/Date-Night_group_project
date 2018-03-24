@@ -34,26 +34,26 @@ $(document).ready(function () {
     $('#btnSubmit').on('click', function () {
         // event.preventDefault();
         var userLocationUnchecked = $('#btnZipCode').val().trim();
-  
-        if ((userLocationUnchecked.length === 5) && (!isNaN(userLocationUnchecked))){
-                  console.log('test');
-                  userLocation = userLocationUnchecked
-        
-        database.ref('user-searches/' + localUserID).push({
-            time: userTime,
-            price: userPrice,
-            location: userLocation,
-            activity: userActivity
-        });
-        console.log('submitted');
-    
-    } else {
-        $('#userError').modal('show');
-    }
+
+        if ((userLocationUnchecked.length === 5) && (!isNaN(userLocationUnchecked))) {
+            console.log('test');
+            userLocation = userLocationUnchecked
+
+            database.ref('user-searches/' + localUserID).push({
+                time: userTime,
+                price: userPrice,
+                location: userLocation,
+                activity: userActivity
+            });
+            console.log('submitted');
+
+        } else {
+            $('#userError').modal('show');
+        }
 
     });
 
-   
+
 
 });
 
@@ -63,30 +63,41 @@ var userPrice = '';
 var userTime = '';
 var userInterest = '';
 var userActivity = '';
-var minimal = ["restaurant","bar","movie_theater","liquor_store", "coffee", "cafe", "night_club", "stadium" ];
-var moderate=["bowling_alley",  "zoo", "amusement_park", "art-gallery","museum"];
-var strenuous=["hiking", "park"];
+
+
+// we need less/more generalized activities to not overdo the api pulls
+// here are the vars as they orgiginally were
+// ["restaurant","bar","movie_theater","liquor_store", "coffee", "cafe", "night_club", "stadium" ],
+// ["bowling_alley",  "zoo", "amusement_park", "art-gallery","museum"],
+// ["hiking", "park"],
+
+var activityType = [
+    ["restaurant", "movie_theater", "cafe", "bar"],
+    ["zoo", "amusement_park", "art-gallery", "museum"],
+    ["hiking", "park", "bowling_alley"],
+    ['restaurant', 'museum', 'park', "stadium"]
+];
 
 
 
 var config = {
-    apiKey: "AIzaSyBgnAU6r39_qdEb2eA203aA5Nh3D7spjDA",
-    authDomain: "bootcamp-demo-4e619.firebaseapp.com",
-    databaseURL: "https://bootcamp-demo-4e619.firebaseio.com",
-    projectId: "bootcamp-demo-4e619",
-    storageBucket: "bootcamp-demo-4e619.appspot.com",
-    messagingSenderId: "952060630907"
+    apiKey: "AIzaSyAjqgeQLosZ5_RvLLayW-2umwOp6rdm9AI",
+    authDomain: "date-night-68f3d.firebaseapp.com",
+    databaseURL: "https://date-night-68f3d.firebaseio.com",
+    projectId: "date-night-68f3d",
+    storageBucket: "",
+    messagingSenderId: "980274349046"
 };
 
 firebase.initializeApp(config);
 
 var database = firebase.database();
 
-var name="";
-var price="";
-var hours="";
-var address="";
-var website="";
+var name = "";
+var price = "";
+var hours = "";
+var address = "";
+var website = "";
 
 var getRandom = function (min, max) {
     // min = inclusive, max = exclusive
@@ -112,8 +123,8 @@ var getRandom = function (min, max) {
 //     var newWebsite= $("<td>");
 //     newWebsite.attr("class", "table-data");
 //     newWebsite.text(website);
-    
-   
+
+
     // newRow.append(newName);
     // newRow.append(newPrice);
     // newRow.append(newAddress);
