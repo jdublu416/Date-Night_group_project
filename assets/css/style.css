@@ -140,10 +140,3 @@ footer{
 .modal {
     background-color: #2e2e2e !important;
 };
-
-hr {
-    height: 1px;
-    color: white;
-    background-color: white;
-    border: none;
-}
