@@ -119,6 +119,7 @@ footer{
     /* padding:10px; */
     width: 150px;
     text-align: center;
+    max-height: 75px;
   }
 
   .carousel-caption{
@@ -138,3 +139,100 @@ footer{
   td{
       height: 30px;
   }
+
+  @media only screen and (max-width: 320px){
+    #content{
+   
+        display:grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(3,1fr);
+        grid-auto-rows: minmax(50px,auto);
+        grid-gap: 5px;
+        grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "nav nav nav"
+        "aside aside aside"
+        "aside aside aside"
+        "main main main"
+        "main main main"
+        "main main main"
+        "table table table"
+        "footer footer footer"
+        ;
+    }
+}
+
+/* Mobile Landscape */
+@media only screen 
+and (min-width : 321px)
+and (max-width : 480px){
+    #content{
+   
+        display:grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(4,1fr);
+        grid-auto-rows: minmax(50px,auto);
+        grid-gap: 5px;
+        grid-template-areas:
+        "header header header header"
+        "nav nav nav nav"
+        "nav nav nav nav"
+        "aside aside aside aside"
+        "aside aside aside aside"
+        "main main main main"
+        "main main main main"
+        "main main main main"
+        "table table table table"
+        "footer footer footer footer"
+        ;
+    }
+}
+
+@media only screen 
+and (min-width : 481px)
+and (max-width : 767px){
+    #content{
+   
+        display:grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(5,1fr);
+        grid-auto-rows: minmax(50px,auto);
+        grid-gap: 5px;
+        grid-template-areas:
+        "header header header header header"
+        "nav nav nav nav nav"
+        "aside aside aside aside aside"
+        "aside aside aside aside aside"
+        "main main main main main"
+        "main main main main main"
+        "main main main main main"
+        "table table table table table"
+        "footer footer footer footer footer"
+        ;
+    }
+}
+
+/* Tablets */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px){
+    #content{
+   
+        display:grid;
+        margin: 0 auto;
+        grid-template-columns: repeat(6,1fr);
+        grid-auto-rows: minmax(50px,auto);
+        grid-gap: 5px;
+        grid-template-areas:
+        "header header header header header header"
+        "nav nav nav nav nav nav"
+        "aside aside main main main main"
+        "aside aside main main main main"
+        "aside aside main main main main"
+        "table table table table table table"
+        "footer footer footer footer footer footer"
+        ;
+    }
+}
+
