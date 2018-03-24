@@ -43,6 +43,8 @@ $(document).ready(function () {
         var userLocationUnchecked = $('#btnZipCode').val().trim();
 
         if ((userLocationUnchecked.length === 5) && (!isNaN(userLocationUnchecked))) {
+            $('#tblContainer').empty();
+            // $('#itemsContainer').empty();
             console.log('test');
             userLocation = userLocationUnchecked
 
@@ -72,6 +74,7 @@ var userInterest = '';
 var userDay = '5';
 var userActivity = '0';
 
+
 // we need less/more generalized activities to not overdo the api pulls
 // here are the vars as they orgiginally were
 // ["restaurant","bar","movie_theater","liquor_store", "coffee", "cafe", "night_club", "stadium" ],
@@ -83,6 +86,7 @@ var activityType = [
     ["zoo", "amusement_park", "art-gallery", "museum"],
     ["hiking", "park", "bowling_alley"],
     ['restaurant', 'museum', 'park', "stadium"]
+
 ];
 
 

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -19,7 +21,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+
 </head>
 
 <body id="content">
@@ -38,7 +40,7 @@
                     aria-expanded="false">
                     Price
                 </button>
-                <h4 id="choice1"></h4>
+                <h6 id="choice1"></h6>
                 <div class="row dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item user-price" value="0">free</a>
                     <a class="dropdown-item user-price" value="1">$</a>
@@ -66,11 +68,27 @@
             </div>
 
             <div class="row dropright">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuDay" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Day
+                </button>
+                <h6 id="choice4"></h6>
+                <div class="row dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item user-day" value="0">Sunday</a>
+                    <a class="dropdown-item user-day" value="1">Monday</a>
+                    <a class="dropdown-item user-day" value="2">Tuesday</a>
+                    <a class="dropdown-item user-day" value="3">Wednesday</a>
+                    <a class="dropdown-item user-day" value="4">Thursday</a>
+                    <a class="dropdown-item user-day" value="5">Friday</a>
+                    <a class="dropdown-item user-day" value="6">Saturday</a>
+                </div>
+            </div>
+            <div class="row dropright">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuTime" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     Time of Day
                 </button>
-                <h4 id="choice2"></h4>
+                <h6 id="choice2"></h6>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item user-time" value="1000">Morning</a>
@@ -85,7 +103,7 @@
                     aria-expanded="false">
                     Activity
                 </button>
-                <h4 id="choice3"></h4>
+                <h6 id="choice3"></h6>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                     <!-- Need to add user form for activity -->
@@ -112,10 +130,10 @@
                 <!-- beginning of slide "items" -->
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="assets/images/fancyNightOut.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                            <h5>test Name</h5>
+                    <!-- <div class="carousel-caption d-none d-md-block">
+                            <h4>test Name</h4>
                             <p>info about place</p>
-                          </div>
+                          </div> -->
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="assets/images/boston-skyline-600x400.jpg" alt="Second slide">
@@ -149,7 +167,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+                    <h6 class="modal-title" id="exampleModalLabel">Error</h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -159,6 +177,30 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="userReturn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Welcome back!</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    How did your last date go?
+                </div>
+                <div class="modal-footer mx-auto">
+                    <button type="button" id='goodDate' class="btn btn-secondary" data-dismiss="modal">
+                        <i class="material-icons">sentiment_very_satisfied</i>
+                    </button>
+                    <button type="button" id= 'badDate' class="btn btn-secondary" data-dismiss="modal">
+                        <i class="material-icons">sentiment_very_dissatisfied</i>
+                    </button>
                 </div>
             </div>
         </div>

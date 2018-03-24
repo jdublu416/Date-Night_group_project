@@ -1,13 +1,26 @@
 $(document).ready(function () {
 
-var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
-
   $("#btnSubmit").on("click", function () {
+    var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
+    var googD = {
+      api: "https://maps.googleapis.com",
+      path: "/maps/api/place/details/",
+      output: "json?",
+      place: "placeid=",
+    };
+
+    var googText = {
+      api: "https://maps.googleapis.com",
+      path: "/maps/api/place/textsearch/",
+      output: "json",
+      radius: "&radius=500",
+    };
 
     var zipApi = {
       api: "https://www.zipcodeapi.com/rest/",
       apiKey:
-        "IYOwgIZB6x0T83CjsOj1UFXHlk81dFKmzljKJBeUz7QFosNJ0HKnwqQEb9hJ8qaW",
+
+        "jdfl4FiPUZGRIRmX87i7GsXiFarDOkV1Kpn8eHsGoDHs1VPhrCLNerU1XU4HHsMr",
       format: "/info.json",
       zip: "/" + userLocation,
       units: "/degrees",
@@ -62,6 +75,8 @@ var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
           console.log("search test: ");
           console.log(data);
 
+          // $('#itemsContainer').empty();
+
           for (var i = 0; i < data.results.length; i++) {
 
             var placeId = data.results[i].place_id;
@@ -76,6 +91,7 @@ var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
             }).then(function (details) {
               console.log("details test:");
               console.log(details);
+
 
 
               var day = userDay;
@@ -102,6 +118,7 @@ var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
                 var name = details.result.name;
                 var rating = details.result.rating;
                 var hours = details.result.opening_hours.weekday_text[day];
+                var price = details.result.price_level;
                 var address = details.result.formatted_address;
                 var website = details.result.website;
 
@@ -125,14 +142,19 @@ var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
               $("#tblContainer").append(
                 `
                 <tr>
-                    <td class= "table-data">${name}</td>
-                    <td class= "table-data">${rating}</td>
-                    <td class= "table-data">${address}</td>
-                    <td class= "table-data">${hours}</td>  
-                    <td class= "table-data"><a href='${website}'>${name}</a></td>
+                    <td class="table-data">${name}</td>
+                    <td class="table-data" id='itemRating'>${rating}</td>
+                    <td class="table-data">${address}</td>
+                    <td class="table-data">${hours}</td>  
+                    <td class="table-data"><a href='${website}'>${name}</a></td>
+
                  </tr>
                 `
               );
+
+              if (!details.result.rating) {
+                $('#itemRating').text('No rating');
+              }
               // }
             }
             });
