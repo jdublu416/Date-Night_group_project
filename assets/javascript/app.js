@@ -5,6 +5,7 @@ $(document).ready(function () {
         localUserID = localStorage.getItem("userID");
         console.log("User ID = " + localUserID);
         localUserID = localStorage.getItem("userID");
+        $('#userReturn').modal('show');
     } else {
         console.log("No local user ID found!")
         localStorage.setItem("userID", getRandom(0, 9999999));
@@ -17,6 +18,12 @@ $(document).ready(function () {
         console.log('Time of day: ' + $(this).attr('value'));
         userTime = $(this).attr('value');
         $('#choice2').text(this.text);
+    });
+
+    $('.user-day').on('click', function () {
+        console.log('Day: ' + $(this).attr('value'));
+        userDay = $(this).attr('value');
+        $('#choice4').text(this.text);
     });
 
     $('.user-price').on('click', function () {
@@ -58,12 +65,12 @@ $(document).ready(function () {
 });
 
 var localUserID = '';
-var userLocation = '';
-var userPrice = '';
-var userTime = '';
+var userLocation = '23221';
+var userPrice = '2';
+var userTime = '1400';
 var userInterest = '';
-var userActivity = '';
-
+var userDay = '5';
+var userActivity = '0';
 
 // we need less/more generalized activities to not overdo the api pulls
 // here are the vars as they orgiginally were
@@ -72,7 +79,7 @@ var userActivity = '';
 // ["hiking", "park"],
 
 var activityType = [
-    ["restaurant", "movie_theater", "cafe", "bar"],
+    ["restaurant"],
     ["zoo", "amusement_park", "art-gallery", "museum"],
     ["hiking", "park", "bowling_alley"],
     ['restaurant', 'museum', 'park', "stadium"]

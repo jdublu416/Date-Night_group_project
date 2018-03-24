@@ -19,6 +19,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
 </head>
 
 <body id="content">
@@ -46,6 +47,24 @@
                     <a class="dropdown-item user-price" value="4">$$$$</a>
                 </div>
             </div>
+
+            <div class="row dropright">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuDay" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Day
+                </button>
+                <h6 id="choice4"></h6>
+                <div class="row dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item user-day" value="0">Monday</a>
+                    <a class="dropdown-item user-day" value="1">Tuesday</a>
+                    <a class="dropdown-item user-day" value="2">Wednesday</a>
+                    <a class="dropdown-item user-day" value="3">Thursday</a>
+                    <a class="dropdown-item user-day" value="4">Friday</a>
+                    <a class="dropdown-item user-day" value="5">Saturday</a>
+                    <a class="dropdown-item user-day" value="6">Sunday</a>
+                </div>
+            </div>
+
             <div class="row dropright">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuTime" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -54,8 +73,8 @@
                 <h4 id="choice2"></h4>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item user-time" value="0800">Morning</a>
-                    <a class="dropdown-item user-time" value="1200">Afternoon</a>
+                    <a class="dropdown-item user-time" value="1000">Morning</a>
+                    <a class="dropdown-item user-time" value="1400">Afternoon</a>
                     <a class="dropdown-item user-time" value="1700">Evening</a>
                     <a class="dropdown-item user-time" value="2200">Late Night</a>
                     <a class="dropdown-item user-time" value="">All Day</a>
@@ -151,7 +170,7 @@
         <thead class="table table-hover thead-dark">
                 <tr id="tblHeader">
                     <th class="titleLine">Name</th>
-                    <th class="titleLine">Price</th>
+                    <th class="titleLine">Rating</th>
                     <th class="titleLine">Address</th>
                     <th class="titleLine">Hours</th>
                     <th class="titleLine">Website</th>
