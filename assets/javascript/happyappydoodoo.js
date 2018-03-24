@@ -13,6 +13,12 @@ $(document).ready(function () {
         console.log("User ID = " + localUserID);
     };
 
+    $('.user-day').on('click', function () {
+        console.log('Day: ' + $(this).attr('value'));
+        userDay = $(this).attr('value');
+        $('#choice4').text(this.text);
+    });
+
     $('.user-time').on('click', function () {
         console.log('Time of day: ' + $(this).attr('value'));
         userTime = $(this).attr('value');

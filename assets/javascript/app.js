@@ -67,12 +67,12 @@ $(document).ready(function () {
 });
 
 var localUserID = '';
-var userLocation = '';
-var userPrice = '';
-var userTime = '';
+var userLocation = '23221';
+var userPrice = '2';
+var userTime = '1400';
 var userInterest = '';
-var userDay = '';
-var userActivity = '';
+var userDay = '5';
+var userActivity = '0';
 
 
 // we need less/more generalized activities to not overdo the api pulls
@@ -83,9 +83,10 @@ var userActivity = '';
 
 var activityType = [
     ["restaurant"],
-    ["museum"],
-    ["park"],
-    ["restaurant"],
+    ["zoo", "amusement_park", "art-gallery", "museum"],
+    ["hiking", "park", "bowling_alley"],
+    ['restaurant', 'museum', 'park', "stadium"]
+
 ];
 
 

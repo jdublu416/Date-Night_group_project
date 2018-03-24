@@ -1,17 +1,6 @@
 $(document).ready(function () {
+
   $("#btnSubmit").on("click", function () {
-
-    // for (var i = 0; i < 10; i++) {
-
-
-    // switch case for activity level
-
-    if (userActivity.value == 0) {
-      console.log(minimal);
-    }
-
-
-
     var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
     var googD = {
       api: "https://maps.googleapis.com",
@@ -30,6 +19,7 @@ $(document).ready(function () {
     var zipApi = {
       api: "https://www.zipcodeapi.com/rest/",
       apiKey:
+
         "jdfl4FiPUZGRIRmX87i7GsXiFarDOkV1Kpn8eHsGoDHs1VPhrCLNerU1XU4HHsMr",
       format: "/info.json",
       zip: "/" + userLocation,
@@ -44,25 +34,19 @@ $(document).ready(function () {
           zipApi.units;
       }
     };
+  
     zipApi.zipUrl();
-    console.log(zipApi.zip);
 
     var zipApiUrl = zipApi.zipUrl;
-
-    console.log(zipApiUrl);
-
     $.ajax({
       url: zipApiUrl,
       dataType: "json",
       method: "GET"
     }).then(function (local) {
 
-
       var lat = local.lat;
       var lng = local.lng;
-      console.log(lat + ", " + lng);
 
-      console.log(userActivity);
       for (var j = 0; j < activityType[userActivity].length; j++) {
 
         var type = activityType[userActivity];
@@ -95,8 +79,6 @@ $(document).ready(function () {
 
           for (var i = 0; i < data.results.length; i++) {
 
-
-
             var placeId = data.results[i].place_id;
             var googDUrl =
               "https://maps.googleapis.com/maps/api/place/details/json?placeid=" +
@@ -109,9 +91,18 @@ $(document).ready(function () {
             }).then(function (details) {
               console.log("details test:");
               console.log(details);
-              // $("#itemsContainer").empty();
 
-              // for (var i = 0; i < 10; i++) {
+
+
+              var day = userDay;
+              if (details.result.opening_hours.periods[day].open.time) {
+                var open = details.result.opening_hours.periods[day].open.time
+                var close = details.result.opening_hours.periods[day].close.time
+                console.log("open close test: " + open + " " + close);
+
+              }
+                if (open < userTime && userTime > close) {
+
 
               if (details.result.photos[0].photo_reference) {
                 var photo = details.result.photos[0].photo_reference;
@@ -125,10 +116,9 @@ $(document).ready(function () {
 
 
                 var name = details.result.name;
-                console.log(name);
-                var rating = details.result.rating
+                var rating = details.result.rating;
+                var hours = details.result.opening_hours.weekday_text[day];
                 var price = details.result.price_level;
-                var hours = details.result.opening_hours.weekday_text[4];
                 var address = details.result.formatted_address;
                 var website = details.result.website;
 
@@ -140,22 +130,15 @@ $(document).ready(function () {
                 var newImg = $(`
               <img class= 'd-block w-100' src=${googPUrl} alt='slide image'/>
               <div class="carousel-caption d-none d-md-block">
-                            <h5>${name}</h5>
-                            <p>${rating}</p>
-                          </div>
+              <h5>${name}</h5>
+              <p>Google Rating: ${rating}</p>
+              </div>
               `);
-                // if (i === 0) {
-                //   newCarouselItem.attr('value', 'test');
-                // } else {
-                  newCarouselItem.append(newImg);
-                  $("#itemsContainer").append(newCarouselItem);
-                  var ActiveElement = $('#itemsContainer').find('.item.active');
-                  ActiveElement.remove();
-                  var NextElement = $('#itemsContainer').find('.item').first();
-                  NextElement.addClass('active');
-                // };
+                newCarouselItem.append(newImg);
 
-              };
+                $("#itemsContainer").append(newCarouselItem);
+              }
+
               $("#tblContainer").append(
                 `
                 <tr>
@@ -164,6 +147,7 @@ $(document).ready(function () {
                     <td class="table-data">${address}</td>
                     <td class="table-data">${hours}</td>  
                     <td class="table-data"><a href='${website}'>${name}</a></td>
+
                  </tr>
                 `
               );
@@ -172,7 +156,7 @@ $(document).ready(function () {
                 $('#itemRating').text('No rating');
               }
               // }
-
+            }
             });
 
           }
