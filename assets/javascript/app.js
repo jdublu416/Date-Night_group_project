@@ -5,6 +5,7 @@ $(document).ready(function () {
         localUserID = localStorage.getItem("userID");
         console.log("User ID = " + localUserID);
         localUserID = localStorage.getItem("userID");
+        $('#userReturn').modal('show');
     } else {
         console.log("No local user ID found!")
         localStorage.setItem("userID", getRandom(0, 9999999));
@@ -17,6 +18,12 @@ $(document).ready(function () {
         console.log('Time of day: ' + $(this).attr('value'));
         userTime = $(this).attr('value');
         $('#choice2').text(this.text);
+    });
+
+    $('.user-day').on('click', function () {
+        console.log('Day: ' + $(this).attr('value'));
+        userDay = $(this).attr('value');
+        $('#choice4').text(this.text);
     });
 
     $('.user-price').on('click', function () {
@@ -36,6 +43,8 @@ $(document).ready(function () {
         var userLocationUnchecked = $('#btnZipCode').val().trim();
 
         if ((userLocationUnchecked.length === 5) && (!isNaN(userLocationUnchecked))) {
+            $('#tblContainer').empty();
+            // $('#itemsContainer').empty();
             console.log('test');
             userLocation = userLocationUnchecked
 
@@ -62,6 +71,7 @@ var userLocation = '';
 var userPrice = '';
 var userTime = '';
 var userInterest = '';
+var userDay = '';
 var userActivity = '';
 
 
@@ -72,10 +82,10 @@ var userActivity = '';
 // ["hiking", "park"],
 
 var activityType = [
-    ["restaurant", "movie_theater", "cafe", "bar"],
-    ["zoo", "amusement_park", "art-gallery", "museum"],
-    ["hiking", "park", "bowling_alley"],
-    ['restaurant', 'museum', 'park', "stadium"]
+    ["restaurant"],
+    ["museum"],
+    ["park"],
+    ["restaurant"],
 ];
 
 

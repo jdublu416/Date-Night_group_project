@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $("#btnSubmit").on("click", function () {
+
     // for (var i = 0; i < 10; i++) {
 
 
@@ -11,7 +12,7 @@ $(document).ready(function () {
 
 
 
-    var apiKey = "&key=AIzaSyA2SzP91grr5OJHZONUYV-PHOdtftVbk1Q";
+    var apiKey = "&key=AIzaSyDItjt6yr8eaQoAh5s_bONEjA6QJcliUzY";
     var googD = {
       api: "https://maps.googleapis.com",
       path: "/maps/api/place/details/",
@@ -29,7 +30,7 @@ $(document).ready(function () {
     var zipApi = {
       api: "https://www.zipcodeapi.com/rest/",
       apiKey:
-        "6OxWvGx0Dw4wpSHoahcMzHjm2BaVgbNYD8TRuC5Pw4H6Bt1ZhqSPagogqujHNCvY",
+        "jdfl4FiPUZGRIRmX87i7GsXiFarDOkV1Kpn8eHsGoDHs1VPhrCLNerU1XU4HHsMr",
       format: "/info.json",
       zip: "/" + userLocation,
       units: "/degrees",
@@ -90,6 +91,8 @@ $(document).ready(function () {
           console.log("search test: ");
           console.log(data);
 
+          // $('#itemsContainer').empty();
+
           for (var i = 0; i < data.results.length; i++) {
 
 
@@ -106,7 +109,7 @@ $(document).ready(function () {
             }).then(function (details) {
               console.log("details test:");
               console.log(details);
-              //   $("#itemsContainer").empty();
+              // $("#itemsContainer").empty();
 
               // for (var i = 0; i < 10; i++) {
 
@@ -123,6 +126,7 @@ $(document).ready(function () {
 
                 var name = details.result.name;
                 console.log(name);
+                var rating = details.result.rating
                 var price = details.result.price_level;
                 var hours = details.result.opening_hours.weekday_text[4];
                 var address = details.result.formatted_address;
@@ -137,24 +141,36 @@ $(document).ready(function () {
               <img class= 'd-block w-100' src=${googPUrl} alt='slide image'/>
               <div class="carousel-caption d-none d-md-block">
                             <h5>${name}</h5>
-                            <p>${price}</p>
+                            <p>${rating}</p>
                           </div>
               `);
-                newCarouselItem.append(newImg);
+                // if (i === 0) {
+                //   newCarouselItem.attr('value', 'test');
+                // } else {
+                  newCarouselItem.append(newImg);
+                  $("#itemsContainer").append(newCarouselItem);
+                  var ActiveElement = $('#itemsContainer').find('.item.active');
+                  ActiveElement.remove();
+                  var NextElement = $('#itemsContainer').find('.item').first();
+                  NextElement.addClass('active');
+                // };
 
-                $("#itemsContainer").append(newCarouselItem);
-              }
+              };
               $("#tblContainer").append(
                 `
                 <tr>
-                    <td class= "table-data">${name}</td>
-                    <td class= "table-data">${price}</td>
-                    <td class= "table-data">${address}</td>
-                    <td class= "table-data">${hours}</td>  
-                    <td class= "table-data"><a href='${website}'>${name}</a></td>
+                    <td class="table-data">${name}</td>
+                    <td class="table-data" id='itemRating'>${rating}</td>
+                    <td class="table-data">${address}</td>
+                    <td class="table-data">${hours}</td>  
+                    <td class="table-data"><a href='${website}'>${name}</a></td>
                  </tr>
                 `
               );
+
+              if (!details.result.rating) {
+                $('#itemRating').text('No rating');
+              }
               // }
 
             });
