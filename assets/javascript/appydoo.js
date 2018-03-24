@@ -7,7 +7,7 @@ $(document).ready(function() {
       output: "json?",
       place: "placeid=",
       apiKey:
-        "sl7C854DzBugorUMZSfUCHDp0tkkLZP8M0UYMdLP7NQOxpyYCgUdyIytls9EOC9H",
+        "AIzaSyB3LTprm0Nv01RsSsS34XV3NoycAXNrd4Q",
       query: ""
     };
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
       lat: "",
       lng: "",
       radius: "&radius=500",
-      apiKey: "&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns"
+      apiKey: "&key=AIzaSyB3LTprm0Nv01RsSsS34XV3NoycAXNrd4Q"
     };
 
     var zipApi = {
@@ -70,7 +70,7 @@ $(document).ready(function() {
         lat +
         "," +
         lng +
-        "&radius=2&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns";
+        "&radius=2&key=AIzaSyB3LTprm0Nv01RsSsS34XV3NoycAXNrd4Q";
       $.ajax({
         url: googTUrl,
         dataType: "json",
@@ -104,7 +104,7 @@ $(document).ready(function() {
         var googDUrl =
           "https://maps.googleapis.com/maps/api/place/details/json?placeid=" +
           placeId +
-          "&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns";
+          "&key=AIzaSyB3LTprm0Nv01RsSsS34XV3NoycAXNrd4Q";
 
         $.ajax({
           url: googDUrl,
@@ -118,11 +118,11 @@ $(document).ready(function() {
             var photo = response.results[i].photos[0].photo_reference;
             // https://maps.googleapis.com/maps/api/place/photo?parameters
             console.log("afterajax:  " + photo);
-
+//this ajax callpulls 
             var googPUrl =
               "https://maps.googleapis.com/maps/api/place/photo?photoreference=" +
               photo +
-              "&maxheight=400&maxwidth=600&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns";
+              "&maxheight=400&maxwidth=600&key=AIzaSyB3LTprm0Nv01RsSsS34XV3NoycAXNrd4Q";
             var name = response.results[i].name;
             console.log(name);
             var price = response.results[i].price_level;
