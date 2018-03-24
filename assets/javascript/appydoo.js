@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   $("#btnSubmit").on("click", function () {
     var apiKey = "&key=AIzaSyDAqnSVueutVyZHZt8JvMh-A0UW6lFL4MY";
     var googD = {
