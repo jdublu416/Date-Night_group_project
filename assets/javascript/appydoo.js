@@ -17,7 +17,7 @@ $(document).ready(function() {
       output: "json",
       query: "restaurant",
       location: "&location=",
-      price: "&maxprice=" + userPrice,
+      price: "&maxprice=" + userPrice + "&minprice=" + userPrice, 
       type: "&type=",
       lat: "",
       lng: "",
@@ -70,7 +70,7 @@ $(document).ready(function() {
         lat +
         "," +
         lng +
-        "&radius=500&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns";
+        "&radius=2&key=AIzaSyCncPas0D_Cgk8gECiV_7tEIqxkNa0f9Ns";
       $.ajax({
         url: googTUrl,
         dataType: "json",
@@ -79,6 +79,7 @@ $(document).ready(function() {
         console.log(response);
 
         var placeId = response.results[0].place_id;
+       
         //     for (var i = 0; i < response.results.length; i++) {
 
         // var photo = "";
@@ -127,15 +128,20 @@ $(document).ready(function() {
             var price = response.results[i].price_level;
             var hours = response.results[i].opening_hours;
             var address = response.results[i].formatted_address;
-            var website = "";
+            var website = response.results[i].website;
             //insert the HTML elements for the carousel here:
 
             var newCarouselItem = $("<div class='carousel-item'>");
             // console.log(i);
             var newImg = $(`
               <img class= 'd-block w-100' src=${googPUrl} alt='slide image'/>
+              <div class="carousel-caption d-none d-md-block">
+                            <h5>${name}</h5>
+                            <p>${price}</p>
+                          </div>
               `);
             newCarouselItem.append(newImg);
+
             $("#itemsContainer").append(newCarouselItem);
 
             $("#tblContainer").append(
