@@ -1,9 +1,5 @@
 $(document).ready(function () {
 
-  $('#carouselExampleControls').on('slide.bs.carousel', function(evt) {
-    console.log('Carousel slide: %O', evt);
-  });
-  
   $("#btnSubmit").on("click", function () {
     // for (var i = 0; i < 10; i++) {
 
