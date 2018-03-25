@@ -1,18 +1,6 @@
 $(document).ready(function () {
-
   $("#btnSubmit").on("click", function () {
-    // for (var i = 0; i < 10; i++) {
-
-
-    // switch case for activity level
-
-    if (userActivity.value == 0) {
-      console.log(minimal);
-    }
-
-
-
-    var apiKey = "&key=AIzaSyA2SzP91grr5OJHZONUYV-PHOdtftVbk1Q";
+    var apiKey = "&key=AIzaSyDAqnSVueutVyZHZt8JvMh-A0UW6lFL4MY";
     var googD = {
       api: "https://maps.googleapis.com",
       path: "/maps/api/place/details/",
@@ -30,7 +18,8 @@ $(document).ready(function () {
     var zipApi = {
       api: "https://www.zipcodeapi.com/rest/",
       apiKey:
-        "6OxWvGx0Dw4wpSHoahcMzHjm2BaVgbNYD8TRuC5Pw4H6Bt1ZhqSPagogqujHNCvY",
+
+        "jdfl4FiPUZGRIRmX87i7GsXiFarDOkV1Kpn8eHsGoDHs1VPhrCLNerU1XU4HHsMr",
       format: "/info.json",
       zip: "/" + userLocation,
       units: "/degrees",
@@ -44,25 +33,19 @@ $(document).ready(function () {
           zipApi.units;
       }
     };
+  
     zipApi.zipUrl();
-    console.log(zipApi.zip);
 
     var zipApiUrl = zipApi.zipUrl;
-
-    console.log(zipApiUrl);
-
     $.ajax({
       url: zipApiUrl,
       dataType: "json",
       method: "GET"
     }).then(function (local) {
 
-
       var lat = local.lat;
       var lng = local.lng;
-      console.log(lat + ", " + lng);
 
-      console.log(userActivity);
       for (var j = 0; j < activityType[userActivity].length; j++) {
 
         var type = activityType[userActivity];
@@ -91,9 +74,9 @@ $(document).ready(function () {
           console.log("search test: ");
           console.log(data);
 
+          // $('#itemsContainer').empty();
+
           for (var i = 0; i < data.results.length; i++) {
-
-
 
             var placeId = data.results[i].place_id;
             var googDUrl =
@@ -107,9 +90,18 @@ $(document).ready(function () {
             }).then(function (details) {
               console.log("details test:");
               console.log(details);
-              //   $("#itemsContainer").empty();
 
-              // for (var i = 0; i < 10; i++) {
+
+
+              var day = userDay;
+              if (details.result.opening_hours.periods[day].open.time) {
+                var open = details.result.opening_hours.periods[day].open.time
+                var close = details.result.opening_hours.periods[day].close.time
+                console.log("open close test: " + open + " " + close);
+
+              }
+                if (open < userTime && userTime > close) {
+
 
               if (details.result.photos[0].photo_reference) {
                 var photo = details.result.photos[0].photo_reference;
@@ -123,9 +115,9 @@ $(document).ready(function () {
 
 
                 var name = details.result.name;
-                console.log(name);
+                var rating = details.result.rating;
+                var hours = details.result.opening_hours.weekday_text[day];
                 var price = details.result.price_level;
-                var hours = details.result.opening_hours.weekday_text[4];
                 var address = details.result.formatted_address;
                 var website = details.result.website;
 
@@ -137,27 +129,33 @@ $(document).ready(function () {
                 var newImg = $(`
               <img class= 'd-block w-100' src=${googPUrl} alt='slide image'/>
               <div class="carousel-caption d-none d-md-block">
-                            <h5>${name}</h5>
-                            <p>${price}</p>
-                          </div>
+              <h5>${name}</h5>
+              <p>Google Rating: ${rating}</p>
+              </div>
               `);
                 newCarouselItem.append(newImg);
 
                 $("#itemsContainer").append(newCarouselItem);
               }
+
               $("#tblContainer").append(
                 `
                 <tr>
-                    <td class= "table-data">${name}</td>
-                    <td class= "table-data">${price}</td>
-                    <td class= "table-data">${address}</td>
-                    <td class= "table-data">${hours}</td>  
-                    <td class= "table-data"><a href='${website}'>${name}</a></td>
+                    <td class="table-data">${name}</td>
+                    <td class="table-data" id='itemRating'>${rating}</td>
+                    <td class="table-data">${address}</td>
+                    <td class="table-data">${hours}</td>  
+                    <td class="table-data"><a href='${website}'>${name}</a></td>
+
                  </tr>
                 `
               );
-              // }
 
+              if (!details.result.rating) {
+                $('#itemRating').text('No rating');
+              }
+              // }
+            }
             });
 
           }
