@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#btnSubmit").on("click", function () {
-    var apiKey = "&key=AIzaSyDAqnSVueutVyZHZt8JvMh-A0UW6lFL4MY";
+    var apiKey = "&key=AIzaSyBGYsqcckmm-N1WPAr8TSGg_r0DskxF5Lc";
     var googD = {
       api: "https://maps.googleapis.com",
       path: "/maps/api/place/details/",
@@ -19,7 +19,7 @@ $(document).ready(function () {
       api: "https://www.zipcodeapi.com/rest/",
       apiKey:
 
-        "jdfl4FiPUZGRIRmX87i7GsXiFarDOkV1Kpn8eHsGoDHs1VPhrCLNerU1XU4HHsMr",
+        "E5RRjLeDNEFPNXxnVzCCuE97BZI7AKUvDiWFYBGT8JdcAzeJa2HA4HATYSeTbCmc",
       format: "/info.json",
       zip: "/" + userLocation,
       units: "/degrees",
