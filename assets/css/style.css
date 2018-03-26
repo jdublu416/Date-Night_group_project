@@ -103,6 +103,8 @@ margin-left: 20px;
 
 section{
     grid-area: section;
+    margin-right: 25px;
+    padding-bottom: 10px;
 }
 
 aside{
@@ -239,10 +241,10 @@ and (max-width : 1024px){
         grid-gap: 5px;
         grid-template-areas:
         "header header header header header header"
-        "nav nav nav nav nav nav"
-        "aside aside main main main main"
-        "aside aside main main main main"
-        "aside aside main main main main"
+        ". section nav nav nav nav"
+        "aside aside aside main main main"
+        "aside aside aside main main main"
+        "aside aside aside main main main"
         "table table table table table table"
         "footer footer footer footer footer footer"
         ;
